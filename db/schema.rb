@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2020_11_29_074153) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "content"
-    t.boolean "published"
+    t.boolean "published", default: true
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2020_11_29_074153) do
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "name"
+    t.string "last_name"
+    t.string "second_last_name"
     t.string "auth_token"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

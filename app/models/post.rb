@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id         :integer          not null, primary key
+#  title      :string
+#  content    :string
+#  published  :boolean
+#  user_id    :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 class Post < ApplicationRecord
   belongs_to :user
   
@@ -5,4 +17,6 @@ class Post < ApplicationRecord
   validates :content, presence: true
   validates :published, inclusion: { in: [true, false] }
   validates :user_id, presence: true
+
+  scope :published, -> { where(published: true) }
 end

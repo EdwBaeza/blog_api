@@ -3,7 +3,9 @@ class CreateUsers < ActiveRecord::Migration[6.0]
     create_table :users do |t|
       t.string :email
       t.string :name
-      t.string :auth_token
+      t.string :last_name
+      t.string :second_last_name, null: true
+      t.string :auth_token, null: true
 
       t.timestamps
     end
