@@ -9,10 +9,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      COMPOSE_FILE: docker-compose-development.yml
     steps:
     - uses: actions/checkout@v2
-    - name: Export compose file
-      run: export COMPOSE_FILE=docker-compose-development.yml
     - name: Build docker stack
       run: docker-compose build
     - name: Create and migrate database
