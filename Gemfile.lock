@@ -67,6 +67,10 @@ GEM
     crass (1.0.6)
     database_cleaner (1.8.5)
     diff-lcs (1.4.4)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     erubi (1.10.0)
     factory_bot (4.11.1)
       activesupport (>= 3.0.0)
@@ -111,6 +115,7 @@ GEM
     nio4r (2.5.4)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
+    pg (1.2.3)
     puma (4.3.6)
       nio4r (~> 2.0)
     rack (2.2.3)
@@ -194,11 +199,13 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   database_cleaner (~> 1.7)
+  dotenv-rails
   factory_bot_rails (~> 4.0)
   faker (~> 1.9)
   jsonapi-rails
   jwt (~> 2.2)
   listen (~> 3.2)
+  pg
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
   rspec-rails (~> 4.0.1)

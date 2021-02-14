@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Api::PostsController < ApplicationController
 
   def index
@@ -12,7 +14,7 @@ class Api::PostsController < ApplicationController
 
   def create
     @post = Post.create!(create_params)
-    render json_api(@post, :created, {})
+    render json_api(@post, :created)
   end
 
   private

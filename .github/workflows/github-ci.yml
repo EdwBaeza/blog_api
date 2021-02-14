@@ -1,0 +1,22 @@
+name: Rails app CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Export compose file
+      run: export COMPOSE_FILE=docker-compose-development.yml
+    - name: Build docker stack
+      run: docker-compose build
+    - name: Create and migrate database
+      run: docker-compose run web bundle exec rails db:create
+      run: docker-compose run web bundle exec rails db:migrate
+    - name: Run Tests
+      run: docker-compose run web bundle exec rspec

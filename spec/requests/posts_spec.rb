@@ -2,9 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Api::PostsController, type: :request do 
   describe "GET /api/posts" do
-    before { get '/api/posts' }
-
     it "should return OK" do
+      get '/api/posts'
       payload = JSON.parse(response.body)
       expect(payload['data'].size).to eq(0)
       expect(response).to have_http_status(200)
@@ -22,7 +21,7 @@ RSpec.describe Api::PostsController, type: :request do
   end
 
   describe "GET /api/posts/{id}" do
-    let!(:post) { create(:post) }
+    let!(:post) { create(:post, published: true) }
     it "should return a post" do
       get "/api/posts/#{post.id}"
       data = JSON.parse(response.body)['data']
