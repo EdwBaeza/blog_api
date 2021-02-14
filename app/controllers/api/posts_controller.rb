@@ -1,22 +1,18 @@
 class Api::PostsController < ApplicationController
-  # GET /posts
+
   def index
     @posts = Post.published
-    render jsonapi: @posts,
-           #relationship: :user,
-           include: [:user],
-           status: :ok
+    render json_api(@posts, :ok, params[:fields], params[:include])
   end
 
-  # GET /posts/{id}
   def show
-    @posts = Post.published.find(params[:id])
-    render json: @posts, status: :ok
+    @post = Post.published.find(params[:id])
+    render json_api(@post, :ok, params[:fields], params[:include])
   end
 
   def create
     @post = Post.create!(create_params)
-    render json: @post, status: :created
+    render json_api(@post, :created, {})
   end
 
   private
@@ -24,5 +20,4 @@ class Api::PostsController < ApplicationController
   def create_params
     params.require(:post).permit(:title, :content, :user_id)
   end
-
 end
