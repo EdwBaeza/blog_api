@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       COMPOSE_FILE: docker-compose-development.yml
+      APP_DATABASE_USER_NAME: postgres
+      APP_DATABASE_PASSWORD: devtest
+      APP_DATABASE_HOST: db
     steps:
     - uses: actions/checkout@v2
     - name: Build docker stack
