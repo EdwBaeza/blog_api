@@ -20,6 +20,11 @@ jobs:
         APP_DATABASE_USER_NAME: postgres
         APP_DATABASE_PASSWORD: devtest
         APP_DATABASE_HOST: db
+        PG_DATABASE: blogapi_test
+        PG_HOST: db
+        PG_USER: postgres
+        PG_PASSWORD: devtest
+        RAILS_ENV: test
       run: |
         env
         docker-compose run web rake fake:print_env
@@ -30,4 +35,9 @@ jobs:
         APP_DATABASE_USER_NAME: postgres
         APP_DATABASE_PASSWORD: devtest
         APP_DATABASE_HOST: db
+        PG_DATABASE: blogapi_test
+        PG_HOST: db
+        PG_USER: postgres
+        PG_PASSWORD: devtest
+        RAILS_ENV: test
       run: docker-compose run web bundle exec rspec
