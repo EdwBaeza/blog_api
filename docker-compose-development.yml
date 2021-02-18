@@ -18,3 +18,7 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    environment:
+      APP_DATABASE_USER_NAME: ${APP_DATABASE_USER_NAME}
+      APP_DATABASE_PASSWORD: ${APP_DATABASE_PASSWORD}
+      APP_DATABASE_HOST: ${APP_DATABASE_HOST}
