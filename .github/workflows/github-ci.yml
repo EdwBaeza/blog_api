@@ -11,9 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       COMPOSE_FILE: docker-compose-development.yml
-      APP_DATABASE_USER_NAME: postgres
-      APP_DATABASE_PASSWORD: devtest
-      APP_DATABASE_HOST: db
     steps:
     - uses: actions/checkout@v2
     - name: Build docker stack
@@ -22,5 +19,13 @@ jobs:
       run: |
         docker-compose run web bundle exec rails db:create
         docker-compose run web bundle exec rails db:migrate
+      env:
+        APP_DATABASE_USER_NAME: postgres
+        APP_DATABASE_PASSWORD: devtest
+        APP_DATABASE_HOST: db
     - name: Run Tests
       run: docker-compose run web bundle exec rspec
+      env:
+        APP_DATABASE_USER_NAME: postgres
+        APP_DATABASE_PASSWORD: devtest
+        APP_DATABASE_HOST: db
