@@ -2,8 +2,8 @@
 # rake fake:print_env
 
 namespace :fake do
-  desc 'Remove keywords from product name'
-  task print_env: :environment do
+  desc 'Print env vars'
+  task print_env_vars: :environment do
     puts "Print Envs starts at #{Time.current}".center(100, "=")
 
     puts ENV.keys
