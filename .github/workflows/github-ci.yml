@@ -16,17 +16,18 @@ jobs:
     - name: Build docker stack
       run: docker-compose build
     - name: Create and migrate database
+      env:
+        APP_DATABASE_USER_NAME: postgres
+        APP_DATABASE_PASSWORD: devtest
+        APP_DATABASE_HOST: db
       run: |
+        env
         docker-compose run web rake fake:print_env
         docker-compose run web bundle exec rails db:create
         docker-compose run web bundle exec rails db:migrate
-      env:
-        APP_DATABASE_USER_NAME: postgres
-        APP_DATABASE_PASSWORD: devtest
-        APP_DATABASE_HOST: db
     - name: Run Tests
-      run: docker-compose run web bundle exec rspec
       env:
         APP_DATABASE_USER_NAME: postgres
         APP_DATABASE_PASSWORD: devtest
         APP_DATABASE_HOST: db
+      run: docker-compose run web bundle exec rspec
