@@ -14,8 +14,12 @@ services:
       context: .
       dockerfile: ./compose/development/Dockerfile
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    stdin_open: true
+    tty: true
     ports:
       - "3000:3000"
+    volumes:
+      - .:/blogapi
     depends_on:
       - db
     environment:
