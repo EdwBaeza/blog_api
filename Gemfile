@@ -12,6 +12,7 @@ gem 'interactor', '~> 3.1', '>= 3.1.2'
 gem 'jsonapi-rails'
 gem "jwt", "~> 2.2"
 gem 'pg'
+gem 'pg_search', '2.3.5'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

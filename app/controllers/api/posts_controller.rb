@@ -16,9 +16,18 @@ class Api::PostsController < ApplicationController
     render json_api(@post, :created)
   end
 
+  def update
+    # TODO ADD STRATEGY UPDATER
+  end
+
   def destroy
     Post.find(params[:id]).destroy!
     head :no_content
+  end
+
+  def search
+    @posts = Post.search(params[:filter])
+    render json_api(@posts, :ok)
   end
 
   private

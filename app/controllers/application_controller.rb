@@ -5,6 +5,10 @@ class ApplicationController < ActionController::API
     render handle_error(exception.message)
   end
 
+  rescue_from ActiveRecord::ActiveRecordError do |exception|
+    render handle_error(exception.message, 400)
+  end
+
   protected
 
   def json_api(data, status, fields = {}, includes = "")
