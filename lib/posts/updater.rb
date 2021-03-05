@@ -10,7 +10,7 @@ module Posts
     end
 
     def update
-        raise NotImplementedError
+      raise NotImplementedError
     end
 
     def valid_to_update?
