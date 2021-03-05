@@ -2,7 +2,7 @@
 
 class Api::Users::PostsController < ApplicationController
   def index
-    @posts = User.includes(:posts).find(params[:user_id]).posts 
+    @posts = Post.where(user_id: params[user_id])
     render json_api(@posts, :ok, params[:fields], params[:include])
   end
 end

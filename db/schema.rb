@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2021_02_28_103854) do
     t.string "second_last_name"
     t.string "auth_token"
     t.integer "posts_count"
+    t.boolean "is_premium", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -2,11 +2,11 @@
 
 class ApplicationController < ActionController::API
   rescue_from StandardError do |exception|
-    render handle_error(exception.message)
+    render json_error(exception.message)
   end
 
   rescue_from ActiveRecord::ActiveRecordError do |exception|
-    render handle_error(exception.message, 400)
+    render json_error(exception.message, 400)
   end
 
   protected
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::API
     }
   end
 
-  def handle_error(errors, status = 500)
+  def json_error(errors, status = 500)
     {
       json: { errors: errors },
       status: status
