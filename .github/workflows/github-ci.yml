@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      COMPOSE_FILE: docker-compose-development.yml
+      COMPOSE_FILE: local.yml
       APP_DATABASE_USER_NAME: postgres
       APP_DATABASE_PASSWORD: devtest
       APP_DATABASE_HOST: db
