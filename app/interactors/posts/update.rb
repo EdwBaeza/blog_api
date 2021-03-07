@@ -31,5 +31,4 @@ class Posts::Update
       status: status
     )
    end
-
 end
