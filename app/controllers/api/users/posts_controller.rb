@@ -3,6 +3,10 @@
 class Api::Users::PostsController < ApplicationController
   before_action :authenticate_user!
 
+  def show
+    render json_api(current_user.posts.find(params[:id]), :ok, params[:fields], params[:include])
+  end
+
   def index
     render json_api(current_user.posts, :ok, params[:fields], params[:include])
   end

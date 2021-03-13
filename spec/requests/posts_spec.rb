@@ -12,8 +12,9 @@ RSpec.describe Api::PostsController, type: :request do
     it "should return OK" do
       auth_headers = Devise::JWT::TestHelpers.auth_headers(headers, user)
       get '/api/posts', headers: auth_headers
-      payload = JSON.parse(response.body)
-      expect(payload['data'].size).to eq(0)
+      data = JSON.parse(response.body)['data']
+      puts data
+      expect(data.size).to eq(0)
       expect(response).to have_http_status(200)
     end
   end
@@ -26,6 +27,7 @@ RSpec.describe Api::PostsController, type: :request do
       auth_headers = Devise::JWT::TestHelpers.auth_headers(headers, user)
       get '/api/posts', headers: auth_headers
       data = JSON.parse(response.body)['data']
+      puts data
       expect(data.size).to eq(posts.size)
       expect(response).to have_http_status(200)
     end

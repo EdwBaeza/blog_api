@@ -3,14 +3,6 @@
 class ApplicationController < ActionController::API
   include ActionController::MimeResponds
 
-  rescue_from StandardError do |exception|
-    render json_error(exception.message)
-  end
-
-  rescue_from ActiveRecord::ActiveRecordError do |exception|
-    render json_error(exception.message, 400)
-  end
-
   protected
 
   def json_api(data, status, fields = {}, includes = "")

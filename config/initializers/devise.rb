@@ -37,7 +37,7 @@ Devise.setup do |config|
     jwt.revocation_requests = [
         ['DELETE', %r{^/logout$}]
       ]
-    jwt.expiration_time = 60.minutes.to_i
+    jwt.expiration_time = 600.minutes.to_i
   end
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'

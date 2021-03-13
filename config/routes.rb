@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     end
     resources :users, only: [] do
       collection do
-        resources :posts, only: [:index, :create, :update], controller: 'users/posts'
+        resources :posts, only: [:show, :index, :create, :update, :destroy], controller: 'users/posts'
       end
     end
   end
