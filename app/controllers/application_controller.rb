@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
+  include ActionController::MimeResponds
+
   rescue_from StandardError do |exception|
     render json_error(exception.message)
   end

@@ -18,6 +18,5 @@ FactoryBot.define do
     content { Faker::Lorem.paragraph }
     published { [true, false].sample }
     published_at { Time.current }
-    user
   end
 end
