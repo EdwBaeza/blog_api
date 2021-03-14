@@ -7,15 +7,17 @@ ruby '2.7.2'
 # gem 'sqlite3', '~> 1.4'
 
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'devise'
+gem 'devise-jwt'
 gem 'dotenv-rails'
 gem 'interactor', '~> 3.1', '>= 3.1.2'
 gem 'jsonapi-rails'
-gem "jwt", "~> 2.2"
 gem 'pg'
 gem 'pg_search', '2.3.5'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rack-cors'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

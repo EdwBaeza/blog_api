@@ -35,6 +35,15 @@ module Bloagapi
     config.paths.add 'lib', eager_load: true
     config.time_zone = 'America/Mexico_City'
     config.api_only = true
-
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '/api/*',
+          headers: %w(Authorization),
+          methods: :any,
+          expose: %w(Authorization),
+          max_age: 600
+      end
+    end
   end
 end

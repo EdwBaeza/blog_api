@@ -17,7 +17,7 @@ module JsonApi
         clean_entity = entity.strip
         if clean_entity.include?('.')
           nested_model = clean_entity.split('.').map(&:to_sym)
-          object << { "#{nested_model[0]}": nested_model[1] }
+          object << { "#{nested_model.first}": nested_model.last }
           next
         end
         object << clean_entity.to_sym

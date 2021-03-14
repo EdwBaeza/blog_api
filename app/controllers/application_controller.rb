@@ -1,13 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
-  rescue_from StandardError do |exception|
-    render json_error(exception.message)
-  end
-
-  rescue_from ActiveRecord::ActiveRecordError do |exception|
-    render json_error(exception.message, 400)
-  end
+  include ActionController::MimeResponds
 
   protected
 
