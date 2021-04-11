@@ -12,10 +12,10 @@ jobs:
     env:
       COMPOSE_FILE: local.yml
       APP_DATABASE_USER_NAME: postgres
-      APP_DATABASE_PASSWORD: devtest
+      APP_DATABASE_PASSWORD: ${{ secrets.BLOGAPI_DB_PASSWORD }}
       APP_DATABASE_HOST: db
       RAILS_ENV: test
-      DEVISE_JWT_SECRET_KEY: 345f9764f57b598b8d672f75e0c63a37d966cb6test
+      DEVISE_JWT_SECRET_KEY: ${{ secrets.BLOGAPI_DEVISE_JWT_SECRET_KEY }}
     steps:
     - uses: actions/checkout@v2
     - name: Build docker stack
